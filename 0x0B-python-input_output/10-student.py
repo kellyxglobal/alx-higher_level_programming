@@ -1,33 +1,19 @@
 #!/usr/bin/python3
-""" Module 10-student
-that defines the class Student
-"""
+"""Student class Module"""
 
 
-class Student:
-    """ Class to create student instances """
-
+class Student():
+    """Student class"""
     def __init__(self, first_name, last_name, age):
-        """ Special method to initialize """
+        """Initializes Student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """ Method that returns directory description """
-        obj = self.__dict__.copy()
-        if type(attrs) is list:
-
-            for item in attrs:
-                if type(item) is not str:
-                    return obj
-
-            d_list = {}
-
-            for iatr in range(len(attrs)):
-                for satr in obj:
-                    if attrs[iatr] == satr:
-                        d_list[satr] = obj[satr]
-            return d_list
-
-        return
+        """Gets dict with filter"""
+        if type(attrs) is list and all([type(attr) == str for attr in attrs]):
+            return {key: val for key, val in self.__dict__.items() if key in
+                    attrs}
+        else:
+            return self.__dict__.copy()
