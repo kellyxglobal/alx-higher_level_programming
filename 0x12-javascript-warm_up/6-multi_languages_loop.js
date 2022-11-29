@@ -1,7 +1,9 @@
 #!/usr/bin/node
-const langs = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-let i = 0;
-while (i < langs.length) {
-  console.log(langs[i]);
-  i += 1;
+
+const myStr = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+let idx = 0;
+
+while (idx < 3) {
+  console.log(myStr[idx]);
+  idx++;
 }
